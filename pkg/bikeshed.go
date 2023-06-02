@@ -19,24 +19,24 @@ const (
 	maxBikeShedWidth  = 4
 )
 
-type Material int
+type Material string
 
 const (
-	Wood Material = iota
-	Steel
-	Aluminium
-	Brick
-	RecycledCoffeeGrounds
+	Wood                  Material = "Wood"
+	Steel                 Material = "Steel"
+	Aluminium             Material = "Aluminium"
+	Brick                 Material = "Brick"
+	RecycledCoffeeGrounds Material = "RecycledCoffeeGrounds"
 )
 
-type Colour int
+type Colour string
 
 const (
-	Black Colour = iota
-	White
-	Blue
-	Green
-	Brown
+	Black Colour = "Black"
+	White Colour = "White"
+	Blue  Colour = "Blue"
+	Green Colour = "Green"
+	Brown Colour = "Brown"
 )
 
 func NewBikeShed(name string, options ...OptionFunc) (*BikeShed, error) {

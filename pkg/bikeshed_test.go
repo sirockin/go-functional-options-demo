@@ -10,7 +10,7 @@ import (
 func ExampleNewBikeShed() {
 	bs, _ := NewBikeShed("default")
 	fmt.Println(bs)
-	// output: &{default 1 5 2 0}
+	// output: &{default Steel 5 2 Black}
 }
 
 func ExampleNewBikeShed_second() {
@@ -18,7 +18,7 @@ func ExampleNewBikeShed_second() {
 		MaterialOption(RecycledCoffeeGrounds),
 		ColourOption(Green))
 	fmt.Println(bs)
-	// output: &{Lewis' Lovely Bikeshed 4 5 2 3}
+	// output: &{Lewis' Lovely Bikeshed RecycledCoffeeGrounds 5 2 Green}
 }
 
 func TestNewBikeShedHappy(t *testing.T) {
@@ -118,12 +118,12 @@ func TestNewBikeShedUnhappy(t *testing.T) {
 			name:        "length too low",
 			options:     []OptionFunc{LengthOption(3.9)},
 			expectedErr: ErrLengthTooLow,
-		},		
+		},
 		{
 			name:        "length too high",
 			options:     []OptionFunc{LengthOption(50.1)},
 			expectedErr: ErrLengthTooHigh,
-		},		
+		},
 	}
 
 	for _, testCase := range testCases {
